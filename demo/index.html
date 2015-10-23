@@ -8,14 +8,46 @@
 <title>datetimepicker</title>
 <!-- Bootstrap core CSS -->
 <link href="http://frame.yingyutalk.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+<link href="../src/css/datetimepicker.css" rel="stylesheet">
 </head>
 
 <body>
-<input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime1">
+<input size="16" type="text" value="2012-06-15 14:45" class="form_datetime1">
+<div class="datetimepicker datetimepicker-dropdown-bottom-right " style="display:block; top:100px;">
+<div class="datetimepicker-modal"></div>
+  <div class="datetimepicker-current">2010年</div>
+  <div class="datetimepicker-years">
+    <div class="datetimepicker-selecter"><span class="year">2010年</span> <span class="year">2011年</span> <span class="year">2012年</span> <span class="year">2013年</span> <span class="year">2014年</span> <span class="year">2015年</span> <span class="year">2016年</span> <span class="year">2017年</span> </div>
+  </div>
+  <div class="datetimepicker-months">2 </div>
+  <div class="datetimepicker-days">3 </div>
+  <div class="datetimepicker-hours">4 </div>
+  <div class="datetimepicker-minutes">5 </div>
+</div>
 <script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script> 
+<script type="text/javascript" src="../lib/jquery.mousewheel.min.js"></script> 
 <script type="text/javascript" src="../src/js/datetimepicker.js"></script> 
 <script type="text/javascript">
 	$(".form_datetime1").datetimepicker({format: 'yyyy-mm-dd hh:ii', forceParse: true});
+	$(function(){
+		// CSS transform变换应用
+		var transform = function(element, value, key) {
+			key = key || "Transform";
+			["Moz", "O", "Ms", "Webkit", ""].forEach(function(prefix) {
+				element.style[prefix + key] = value;	
+			});	
+			
+			return element;
+		}
+		var index = 0;
+	$('.datetimepicker-years').on('mousewheel', function(event) {
+//		var mtop = parseInt($('.datetimepicker-selecter').css('margin-top'));
+		index += event.deltaY;
+			transform($('.datetimepicker-selecter')[0], 'translateY('+(35*index)+'px'+')')
+		//$('.datetimepicker-selecter').css('margin-top', (mtop+35*event.deltaY)+'px');
+			console.log(event.deltaX, event.deltaY, event.deltaFactor,mtop);
+		});
+	});
 </script>
 </body>
 </html>
