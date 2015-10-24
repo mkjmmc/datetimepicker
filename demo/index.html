@@ -13,17 +13,16 @@
 
 <body>
 <input size="16" type="text" value="2012-06-15 14:45" class="form_datetime1">
-<div class="datetimepicker datetimepicker-dropdown-bottom-right " style="display:block; top:100px;">
+<!--<div class="datetimepicker datetimepicker-dropdown-bottom-right " style="display:block; top:100px;">
 <div class="datetimepicker-modal"></div>
-  <div class="datetimepicker-current">2010年</div>
-  <div class="datetimepicker-years">
+  <div class="datetimepicker-years"><div class="datetimepicker-current"></div>
     <div class="datetimepicker-selecter"><span class="year">2010年</span> <span class="year">2011年</span> <span class="year">2012年</span> <span class="year">2013年</span> <span class="year">2014年</span> <span class="year">2015年</span> <span class="year">2016年</span> <span class="year">2017年</span> </div>
   </div>
   <div class="datetimepicker-months">2 </div>
   <div class="datetimepicker-days">3 </div>
   <div class="datetimepicker-hours">4 </div>
   <div class="datetimepicker-minutes">5 </div>
-</div>
+</div>-->
 <script type="text/javascript" src="../lib/jquery-1.10.2.min.js"></script> 
 <script type="text/javascript" src="../lib/jquery.mousewheel.min.js"></script> 
 <script type="text/javascript" src="../src/js/datetimepicker.js"></script> 
@@ -40,12 +39,15 @@
 			return element;
 		}
 		var index = 0;
-	$('.datetimepicker-years').on('mousewheel', function(event) {
+	$('.datetimepicker > div').on('mousewheel', function(event) {
 //		var mtop = parseInt($('.datetimepicker-selecter').css('margin-top'));
-		index += event.deltaY;
-			transform($('.datetimepicker-selecter')[0], 'translateY('+(35*index)+'px'+')')
+			index += event.deltaY;
+			$(this).find('.datetimepicker-selecter').animate({
+				marginTop: (35*index)+'px'
+				},0)
+//			transform($('.datetimepicker-selecter')[0], 'translateY('+(35*index)+'px'+')')
 		//$('.datetimepicker-selecter').css('margin-top', (mtop+35*event.deltaY)+'px');
-			console.log(event.deltaX, event.deltaY, event.deltaFactor,mtop);
+			console.log(event.deltaX, event.deltaY, event.deltaFactor);
 		});
 	});
 </script>

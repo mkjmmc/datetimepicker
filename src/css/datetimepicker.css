@@ -46,18 +46,18 @@ overflow:hidden;
 line-height:35px;
 font-size:14px;
 color:#a1a1a1;
-
+position:relative;
 	
 	
 }
-.datetimepicker .year{
+.datetimepicker .year,.datetimepicker .month,.datetimepicker .day{
 	display: block;
 }
 .datetimepicker-selecter{ 
--moz-transition: all 0.1s ease-in;
--webkit-transition: all 0.1s ease-in;
--o-transition: all 0.1s ease-in;
-transition: all 0.1s ease-in;
+-moz-transition: all 0.05s ease-in;
+-webkit-transition: all 0.05s ease-in;
+-o-transition: all 0.05s ease-in;
+transition: all 0.05s ease-in;
 }
 .datetimepicker-modal{background-color: #FFF;filter: alpha(opacity=50);    opacity: .5;    position: absolute;
     top: 0;
@@ -66,5 +66,10 @@ transition: all 0.1s ease-in;
     left: 0;
 	display:none;
 	}
-.datetimepicker-current{ position: absolute; top:50%; left:0; right:0; margin-top:-17px; height:35px; border-top: solid 1px #c6c6c6; border-bottom: solid 1px #c6c6c6; background:#f6f6f6; }
+.datetimepicker-current{ 
+position: absolute; top:50%; left:0; right:0; margin-top:-17px; height:35px; border-top: solid 1px #c6c6c6; border-bottom: solid 1px #c6c6c6; }
+
+
+.datetimepicker .active{color:#000; font-weight:bold}
+.datetimepicker .today{color:#0fff00; font-weight:bold}
 
