@@ -1,0 +1,157 @@
+@charset "utf-8";
+/* CSS Document */
+
+.datapicker {
+	position:absolute;
+	margin-top: 1px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	direction: ltr;
+	background:#FFFFFF;
+	perspective: 1000px;
+    perspective-origin: center center;
+}
+.datapicker, .datapicker * {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    font-family: helvetica;
+}
+.clone-scroller {
+    -webkit-box-shadow: inset 0 20px 24px 3px white, inset 0 -20px 24px 3px white;
+    -ms-box-shadow: inset 0 10px 24px 3px white, inset 0 -20px 24px 3px white;
+    -moz-box-shadow: inset 0 10px 24px 3px white, inset 0 -20px 24px 3px white;
+    box-shadow: inset 0 10px 24px 3px white, inset 0 -20px 24px 3px white;
+    z-index: 5;
+    overflow: hidden;
+    height: 100%;
+    
+    top: 0;
+    width: 100%;
+	height:30px;
+	
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+.clone-scroller .option {
+    visibility: hidden;
+	display:block;
+}
+.picker-up, .picker-down {
+    position: absolute;
+    z-index: 2;
+    background: rgba(256, 256, 256, 0.6);
+    width: 100%;
+    height: 90px;
+}
+.picker-up {
+    top: 0;
+    border-bottom: 1px solid lightgray;
+}
+.picker-down {
+    top: 120px;
+    border-top: 1px solid lightgray;
+}
+.picker-scroller {
+    -webkit-transition: -webkit-transform 100ms ease;
+    -webkit-transform: translateZ(-90px) rotateX(0deg);
+    -webkit-transform-style: preserve-3d;
+    height: 100%;
+	position:absolute;
+	top:0;
+}
+.picker-scroller .option {
+    position: absolute;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    width: 100%;
+    transition: all 300ms;
+    color: black;
+    transform-origin: 50% 50%;
+    -webkit-transform-style: preserve-3d;
+}
+
+.datapicker-dropdown-bottom-right:before {
+	top: -7px;
+	left: 6px;
+}
+[class*=" datapicker-dropdown"]:before {
+ content: '';
+ display: inline-block;
+ border-left: 7px solid transparent;
+ border-right: 7px solid transparent;
+ border-bottom: 7px solid #cccccc;
+ border-bottom-color: rgba(0, 0, 0, 0.2);
+ position: absolute;
+}
+.datapicker-dropdown-bottom-right:after {
+	top: -6px;
+	left: 7px;
+}
+[class*=" datapicker-dropdown"]:after {
+ content: '';
+ display: inline-block;
+ border-left: 6px solid transparent;
+ border-right: 6px solid transparent;
+ border-bottom: 6px solid #ffffff;
+ position: absolute;
+}
+.datapicker .datapicker-years, .datapicker .datapicker-months, .datapicker .datapicker-days, .datapicker .datapicker-hours, .datapicker .datapicker-minutes {
+	float:left;
+	height:175px;
+	width:60px;
+	overflow:hidden;
+	line-height:35px;
+	font-size:14px;
+	color:#a1a1a1;
+	position:relative;
+}
+.datapicker-item {
+	display: block;
+}
+.datapicker-selecter {
+	-moz-transition: all 0.05s ease-in;
+	-webkit-transition: all 0.05s ease-in;
+	-o-transition: all 0.05s ease-in;
+	transition: all 0.05s ease-in;
+}
+.datapicker-modal {
+	background-color: #FFF;
+	filter: alpha(opacity=50);
+	opacity: .5;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display:none;
+}
+.datapicker-current {
+	position: absolute;
+	top:50%;
+	left:0;
+	right:0;
+	margin-top:-17px;
+	height:35px;
+	border-top: solid 1px #c6c6c6;
+	border-bottom: solid 1px #c6c6c6;
+}
+
+.datapicker-selecter:before {
+ content: '';
+ display: block;
+	background:rgba(256,256,256,0.6);  
+	top:0;
+	width:100%;
+	height:70px;
+ position: absolute;
+
+}
+.datapicker .active {
+	color:#000;
+	font-weight:bold
+}
+.datapicker .today {
+	color:#0fff00;
+	font-weight:bold
+}
